@@ -53,7 +53,7 @@ const Landing = () => {
                 </div>
 
                 {/* Right side - image fills its container naturally */}
-                <div className="image-side animate-[slide-in-right_0.8s_ease-in-out_forwards] basis-[40%] relative flex items-center justify-center">
+                <div className="image-side animate-[slide-in-right_0.8s_ease-in-out_forwards] basis-[40%] relative flex items-center justify-center hidden md:block">
                     <Image src="/landing/star-removebg-preview.png" className="absolute z-[100] lg:top-[50px] top-0 right-0 lg:right-[40px]" alt="star" width={50} height={50} />
                     <Image src="/landing/star-removebg-preview.png" className="absolute z-[100] bottom-[0px] lg:bottom-[40px] left-0 lg:left-[-20px]" alt="star" width={50} height={50} />
                     <div className="absolute bottom-0 left-0 w-full h-full flex justify-center">
