@@ -40,7 +40,7 @@ const SocialAuthButtons = ({ }: SocialAuthButtonsProps) => {
 
             provider,
             options: {
-                redirectTo: `${window.location.origin}/auth/callback`
+                redirectTo: `https://shop-co-ten-sigma.vercel.app//auth/callback`
             }
         })
     }
