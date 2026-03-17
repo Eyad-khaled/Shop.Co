@@ -9,7 +9,7 @@ import ReduxProvider from "@/app/store/provider"
 
 const defaultUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
-  : "http://localhost:3000";
+  : "https://shop-co-ten-sigma.vercel.app/";
 
 export const metadata: Metadata = {
   metadataBase: new URL(defaultUrl),
