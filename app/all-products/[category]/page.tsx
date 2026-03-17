@@ -126,7 +126,7 @@ const Clothes = async ({
   );
 
   return (
-    <div className="pt-10 w-screen px-10 mx-auto">
+    <div className="pt-10 w-full px-10 mx-auto">
       <div className="flex justify-center w-full gap-10">
         <div className="filteration-bar basis-[20%] border rounded-lg px-6 py-10 h-screen shadow-lg lg:block hidden">
           <FilterBar subcategories={selectedSubCategories} />

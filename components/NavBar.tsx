@@ -14,6 +14,8 @@ import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
 import SideBar from "./sidebar";
 import RefreshOutlinedIcon from '@mui/icons-material/RefreshOutlined';
 import { LogoutButton } from "./logout-button";
+import { RootState } from "@/app/store/store";
+import { useSelector } from "react-redux";
 
 
 export interface Item {
@@ -21,15 +23,17 @@ export interface Item {
     href: string;
 }
 const NavBar = () => {
+    const cart = useSelector((state: RootState) => state.CartReducer.items)
     const router = useRouter();
     //vars
     const items: Item[] = [
         { name: 'Home', href: '/' },
-        { name: 'Shop', href: '/all-products' },
+        { name: 'Shop', href: '#categories' },
         { name: 'About', href: '/about' },
         { name: 'Contact', href: '/contact' },
     ];
     //states
+    const [mount, setmount] = useState(false)
     const [dialogVisible, setDialogVisible] = useState(false);
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [userImageUrl, setUserImageUrl] = useState<string | null>(null);
@@ -38,7 +42,14 @@ const NavBar = () => {
     const [IsSideBarOpen, setIsSideBarOpen] = useState<boolean>(false);
     const categoriesRef = useRef<HTMLLIElement | null>(null);
     const sidebarRef = useRef<HTMLDivElement | null>(null);
+    const [isMounted, setIsMounted] = useState(false)
+
     //isuser logged in or not
+    useEffect(() => {
+        setIsMounted(true)
+    }, [])
+
+
     useEffect(() => {
         const supabase = createClient();
 
@@ -113,6 +124,7 @@ const NavBar = () => {
             router.push("/cart");
         }
     }
+    if (!isMounted) return null
     return (
         <div className="bg-white sticky top-0 z-[999999999999999999999999999999999] shadow-lg">
             {(IsSideBarOpen || isCategoriesOpen) && (
@@ -157,7 +169,7 @@ const NavBar = () => {
                 </ul>
                 <div className="icons flex items-center gap-4">
                     <div className="cursor-pointer" onClick={handleCartClick}>
-                        <ShoppingCartOutlinedIcon fontSize='small' />
+                        <ShoppingCartOutlinedIcon fontSize='small' />({cart.length})
                     </div>
                     <Dialog visible={dialogVisible} style={{ width: '80vw' }} onHide={() => { if (!dialogVisible) return; setDialogVisible(false); }}>
                         <div className="p-4 flex flex-col gap-4 bg-white rounded-md">
