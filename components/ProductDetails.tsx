@@ -6,23 +6,26 @@ import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import { Product } from "@/app/interfaces/product";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import StarRating from "./starsRating";
 import VerifiedIcon from '@mui/icons-material/Verified';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import CheckIcon from '@mui/icons-material/Check';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 interface ProductDetailsProps {
     product: Product
 }
 
 const ProductDetails = ({ product }: ProductDetailsProps) => {
-    const cart = useSelector((state: RootState) => state.CartReducer.items)
     const dispatch = useDispatch()
     const [currentImage, setCurrentImage] = useState(0)
     const [quantity, setquantity] = useState(1)
     const [isVisible, setIsVisible] = useState(true)
     const [IsSuccesful, setIsSuccesful] = useState(false)
-
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
     const handleImageChange = (index: number) => {
         setIsVisible(false) // fade out
         setTimeout(() => {
@@ -46,9 +49,9 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
 
         } finally {
             setquantity(1)
-            setTimeout(()=>{
+            setTimeout(() => {
                 setIsSuccesful(false)
-            },3000)
+            }, 3000)
         }
     }
     return (
@@ -73,10 +76,19 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
                     }
 
                     <div
-                        className="current-img  bg-[#F0EEED] rounded-lg"
+                        className="current-img bg-[#F0EEED] px-8 rounded-lg flex justify-center items-center"
 
                     >
+                        <div className="cursor-pointer" onClick={() => currentImage > 0 ? setCurrentImage(currentImage - 1) : null}>
+
+                            <ArrowBackIcon />
+                        </div>
+
                         <Image style={{ opacity: isVisible ? 1 : 0 }} className="h-full w-auto transition-opacity duration-300 ease-in-out" src={product.images[currentImage]} height={200} width={200} alt="Showing Image" />
+                        <div className="cursor-pointer" onClick={() => currentImage === product.images.length -1  ? null : setCurrentImage(currentImage + 1)}>
+
+                            <ArrowForwardIcon />
+                        </div>
                     </div>
                 </div>
                 <div className="details flex flex-col justify-between basis-[60%]">
@@ -94,7 +106,7 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
                     <div className="description pt-4">
                         <p className="opacity-60">{product.description}</p>
                     </div>
-                    
+
                     <div className="add-to-cart flex pt-16 items-center gap-4">
                         <div className="quantity flex justify-between items-center basis-1/3 px-4 bg-[#F0EEED] rounded-[50px] py-4">
                             <div className="cursor-pointer" onClick={() => quantity > 1 ? setquantity(quantity - 1) : null}>

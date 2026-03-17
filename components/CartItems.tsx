@@ -64,8 +64,8 @@ const CartItems = () => {
                                         <div className="price font-bold text-lg flex justify-between items-center">
                                             <div className="flex items-center gap-4">
 
-                                            <h1 className="current-price text-[16px] font-[600]">${(e.product.price * ((100 - e.product.discountPercentage) / 100)).toFixed(2)}</h1>
-                                            <h1 className="current-price text-[16px] font-[600] opacity-40 line-through">${(e.product.price).toFixed(2)}</h1>
+                                            <h1 className="current-price text-[16px] font-[600]">${((e.product.price * ((100 - e.product.discountPercentage) / 100)) * e.quantity).toFixed(2)}</h1>
+                                            <h1 className="current-price text-[16px] font-[600] opacity-40 line-through">${(e.product.price * e.quantity).toFixed(2)}</h1>
                                             </div>
                                             <div className="quantity flex justify-between items-center basis-1/3 px-4 bg-[#F0EEED] rounded-[50px] py-2">
                                                 <div className="cursor-pointer" onClick={() => e.quantity > 1 ? dispatch(decreaseOne({ product: e.product, quantity: 1 })) : console.log('cant reduce again')}>
