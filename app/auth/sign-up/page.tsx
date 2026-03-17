@@ -1,6 +1,14 @@
 import { SignUpForm } from "@/components/sign-up-form";
+import { createClient } from "@/lib/supabase/client";
+import { redirect } from "next/navigation";
 
-export default function Page() {
+export default async function Page() {
+    const supabase = await createClient()
+    const { data: { user } } = await supabase.auth.getUser()
+    if (user) {
+      // Redirect to the home page if the user is already logged in
+      redirect("/");
+    }
   return (
     <div className="flex min-h-svh w-full items-center justify-center p-6 md:p-10">
       <div className="w-full max-w-sm">

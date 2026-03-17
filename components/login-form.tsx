@@ -15,6 +15,7 @@ import { Label } from "@/components/ui/label";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import SocialAuthButtons from "./social-auth-buttons";
 
 export function LoginForm({
   className,
@@ -39,11 +40,14 @@ export function LoginForm({
       });
       if (error) throw error;
       // Update this route to redirect to an authenticated route. The user already has an active session.
-      router.push("/protected");
+      router.push("/");
+      router.refresh(); // Refresh the page to update the UI based on the new authentication state
+
     } catch (error: unknown) {
       setError(error instanceof Error ? error.message : "An error occurred");
     } finally {
       setIsLoading(false);
+
     }
   };
 
@@ -104,6 +108,7 @@ export function LoginForm({
             </div>
           </form>
         </CardContent>
+        <SocialAuthButtons />
       </Card>
     </div>
   );

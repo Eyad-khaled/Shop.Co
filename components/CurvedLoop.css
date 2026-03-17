@@ -1,0 +1,34 @@
+.curved-loop-jacket {
+  background: black;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  width: 100%;
+  height: 81px
+}
+
+.curved-loop-svg {
+  user-select: none;
+  width: 100%;
+  aspect-ratio: 100 / 12;
+  overflow: visible;
+  display: block;
+  font-size: 2.5rem;
+  fill: #ffffff;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+/* Styles for screens 600px and wider (e.g., portrait tablets and large phones) */
+@media only screen and (max-width: 600px) {
+  .curved-loop-jacket {
+    align-items: end;
+
+  };
+  .curved-loop-svg {
+    font-size: 5rem;
+  }
+}
