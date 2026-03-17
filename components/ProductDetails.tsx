@@ -79,13 +79,13 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
                         className="current-img bg-[#F0EEED] px-8 rounded-lg flex justify-center items-center"
 
                     >
-                        <div className="cursor-pointer" onClick={() => currentImage > 0 ? setCurrentImage(currentImage - 1) : null}>
+                        <div className="cursor-pointer" onClick={() => currentImage > 0 ? setCurrentImage(currentImage - 1) : setCurrentImage(product.images.length -1)}>
 
                             <ArrowBackIcon />
                         </div>
 
                         <Image style={{ opacity: isVisible ? 1 : 0 }} className="h-full w-auto transition-opacity duration-300 ease-in-out" src={product.images[currentImage]} height={200} width={200} alt="Showing Image" />
-                        <div className="cursor-pointer" onClick={() => currentImage === product.images.length -1  ? null : setCurrentImage(currentImage + 1)}>
+                        <div className="cursor-pointer" onClick={() => currentImage === product.images.length -1  ? setCurrentImage(0) : setCurrentImage(currentImage + 1)}>
 
                             <ArrowForwardIcon />
                         </div>

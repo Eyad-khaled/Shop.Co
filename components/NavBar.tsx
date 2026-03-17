@@ -43,6 +43,10 @@ const NavBar = () => {
     const categoriesRef = useRef<HTMLLIElement | null>(null);
     const sidebarRef = useRef<HTMLDivElement | null>(null);
     const [isMounted, setIsMounted] = useState(false)
+    const totalCartItems = cart.reduce(
+    (sum, item) => sum + item.quantity,
+    0
+);
 
     //isuser logged in or not
     useEffect(() => {
@@ -169,7 +173,7 @@ const NavBar = () => {
                 </ul>
                 <div className="icons flex items-center gap-4">
                     <div className="cursor-pointer" onClick={handleCartClick}>
-                        <ShoppingCartOutlinedIcon fontSize='small' />({cart.length})
+                        <ShoppingCartOutlinedIcon fontSize='small' />({totalCartItems})
                     </div>
                     <Dialog visible={dialogVisible} style={{ width: '80vw' }} onHide={() => { if (!dialogVisible) return; setDialogVisible(false); }}>
                         <div className="p-4 flex flex-col gap-4 bg-white rounded-md">

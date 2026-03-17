@@ -37,18 +37,18 @@ const CartItems = () => {
         <div className="mt-16 text-start">
 
             <h1 className=" pl-20 mb-8 text-[25px] font-[900] uppercase">Your Cart</h1>
-            <div className="mt-6 flex items-start w-full lg:w-[90%] mx-auto lg:flex-row flex-col gap-6">
+            <div className="mt-6 flex items-center lg:items-start w-full lg:w-[90%] justify-center mx-auto lg:flex-row flex-col gap-6">
                 <div className="basis-1/2">
                     <div className="cart border flex flex-col gap-10 rounded-md px-6 py-5">
 
                         {cart.map((e) => (
                             <div key={e.product.id} className="flex items-center w-full relative">
                                 <div className="h-px bg-black/20 self-stretch absolute bottom-[-20px] w-full " />
-                                <div className="flex w-full gap-4">
+                                <div className="flex w-full gap-4 flex-col lg:flex-row mx-auto">
 
-                                    <div className="bg-[#f0f0f0] rounded-lg">
+                                    <div className="bg-[#f0f0f0] rounded-lg flex justify-center items-center">
 
-                                        <Image className="h-full w-auto" src={e.product.images[0]} width={100} height={100} alt={e.product.title} />
+                                        <Image className="" src={e.product.images[0]} width={200} height={100} alt={e.product.title} />
                                     </div>
                                     <div className="text flex flex-col gap-4 flex-grow">
                                         <div className="flex justify-between items-center">
