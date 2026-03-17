@@ -11,12 +11,12 @@ interface CardsShowProps {
 }
 const CardsShow = ({ products, title ,href }: CardsShowProps) => {
     return (
-        <motion.section initial={{ opacity: 0, y: 100 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: .7 }} >
+        <motion.section initial={{ opacity: 0, y: 100 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: .7 }} className="max-w-[100vw] overflow-auto ">
 
 
-            <div className="bg-white mt-20 w-[95%]">
+            <div className="bg-white mt-20 w-[95%] ">
                 <h1 className="flex justify-center items-center mb-8 text-[25px] font-[900] uppercase">{title}</h1>
-                <ul className="flex justify-around items-center lg:justify-center lg:gap-8 overflow-x-auto overflow-y-hidden lg:overflow-hidden gap-6 px-6 lg:px-0">
+                <ul className="flex justify-around items-center lg:justify-center lg:gap-8 overflow-x-auto overflow-y-hidden lg:overflow-hidden gap-6 px-6 lg:px-0 pb-10">
                     {products.slice(0, 4).map((product) => (
                         <li key={product.id} className="min-w-[150px] basis-1/5">
 

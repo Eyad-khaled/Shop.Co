@@ -126,7 +126,7 @@ const Clothes = async ({
   );
 
   return (
-    <div className="pt-10">
+    <div className="pt-10 w-screen px-10 mx-auto">
       <div className="flex justify-center w-full gap-10">
         <div className="filteration-bar basis-[20%] border rounded-lg px-6 py-10 h-screen shadow-lg lg:block hidden">
           <FilterBar subcategories={selectedSubCategories} />
@@ -137,14 +137,15 @@ const Clothes = async ({
 
               <FilterMobile subcategories={selectedSubCategories} />
             </div>
-            <h1 className="uppercase font-[800] text-[20px]">{category}</h1>
+            
 
             <SortBar />
             {/* <div className="block lg:hidden">
               <TuneIcon />
             </div> */}
           </div>
-          <div className="grid lg:grid-cols-3 grid-cols-2 gap-4 mt-4 p-[20px]">
+          <h1 className="uppercase font-[800] text-[20px] mt-10">{category}</h1>
+          <div className="grid lg:grid-cols-3 grid-cols-2 gap-4 mt-4 ">
             {paginatedProducts.map((p) => (
               <ProductCard key={p.id} product={p} />
             ))}

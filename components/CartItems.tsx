@@ -11,7 +11,6 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import Link from "next/link";
 
 const CartItems = () => {
-    const [quantity, setquantity] = useState(1)
     const cart = useSelector((state: RootState) => state.CartReducer.items)
     const dispatch = useDispatch()
     const [isMounted, setIsMounted] = useState(false)
@@ -38,7 +37,7 @@ const CartItems = () => {
         <div className="mt-16 text-start">
 
             <h1 className=" pl-20 mb-8 text-[25px] font-[900] uppercase">Your Cart</h1>
-            <div className="mt-6 flex items-start w-[90%] mx-auto lg:flex-row flex-col gap-6">
+            <div className="mt-6 flex items-start w-full lg:w-[90%] mx-auto lg:flex-row flex-col gap-6">
                 <div className="basis-1/2">
                     <div className="cart border flex flex-col gap-10 rounded-md px-6 py-5">
 
@@ -65,8 +64,8 @@ const CartItems = () => {
                                         <div className="price font-bold text-lg flex justify-between items-center">
                                             <div className="flex items-center gap-4">
 
-                                            <h1 className="current-price text-[20px] font-[700]">${(e.product.price * ((100 - e.product.discountPercentage) / 100)).toFixed(2)}</h1>
-                                            <h1 className="current-price text-[20px] font-[700] opacity-40 line-through">${(e.product.price).toFixed(2)}</h1>
+                                            <h1 className="current-price text-[16px] font-[600]">${(e.product.price * ((100 - e.product.discountPercentage) / 100)).toFixed(2)}</h1>
+                                            <h1 className="current-price text-[16px] font-[600] opacity-40 line-through">${(e.product.price).toFixed(2)}</h1>
                                             </div>
                                             <div className="quantity flex justify-between items-center basis-1/3 px-4 bg-[#F0EEED] rounded-[50px] py-2">
                                                 <div className="cursor-pointer" onClick={() => e.quantity > 1 ? dispatch(decreaseOne({ product: e.product, quantity: 1 })) : console.log('cant reduce again')}>
@@ -89,7 +88,7 @@ const CartItems = () => {
 
                     </div>
                 </div>
-                <div className="checkout border flex flex-col gap-4 rounded-md p-6 basis-1/3">
+                <div className="checkout border flex flex-col gap-4 rounded-md p-6 w-full lg:basis-1/3">
                     <h1 className=" mb-8 text-[25px] font-[700] ">Order Summary</h1>
                     <div className="mt-6 relative">
 

@@ -109,9 +109,9 @@ const FilterMobile = ({ subcategories }: Props) => {
         };
     }, []);
     return (
-        <div>
+        <div className='left-0'>
             {isVisible && (
-                <div className="fixed inset-0 z-[999999999999]">
+                <div className="fixed inset-0 z-[999999999999] ">
 
                     {/* DARK / BLUR BACKDROP */}
                     <div
@@ -135,7 +135,7 @@ const FilterMobile = ({ subcategories }: Props) => {
                 <TuneIcon />
             </div>
             {/* @ts-ignore */}
-            <div ref={FilterRef} className={`${isVisible ? ' animate-[slide-in-bottom_0.6s_ease-in-out_forwards] ' : ' animate-[slide-out-bottom_0.6s_ease-in-out_forwards]'} absolute w-full h-full bg-white shadow-lg py-4 px-8 z-[9999999999999] rounded-[20px]`}>
+            <div ref={FilterRef} className={`${isVisible ? ' animate-[slide-in-bottom_0.6s_ease-in-out_forwards] ' : ' animate-[slide-out-bottom_0.6s_ease-in-out_forwards]'} absolute w-full h-full bg-white shadow-lg py-4 px-8 z-[9999999999999] rounded-[20px] left-0`}>
                 <div className="flex justify-between items-center w-full">
                     <h1 className="font-bold text-lg"> Filter</h1>
                 </div>
