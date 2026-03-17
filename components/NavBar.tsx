@@ -13,6 +13,7 @@ import CategoriesMenu from "./categoriesMenu";
 import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
 import SideBar from "./sidebar";
 import RefreshOutlinedIcon from '@mui/icons-material/RefreshOutlined';
+import { LogoutButton } from "./logout-button";
 
 
 export interface Item {
@@ -151,7 +152,7 @@ const NavBar = () => {
                                 <KeyboardArrowDownOutlinedIcon />
                             </div>
                         </div>
-                        <CategoriesMenu isCategoriesOpen={isCategoriesOpen} setIsCategoriesOpen={setIsCategoriesOpen}/>
+                        <CategoriesMenu isCategoriesOpen={isCategoriesOpen} setIsCategoriesOpen={setIsCategoriesOpen} />
                     </li>
                 </ul>
                 <div className="icons flex items-center gap-4">
@@ -179,15 +180,19 @@ const NavBar = () => {
                     {loading ? (
                         <div className="w-8 h-8"><RefreshOutlinedIcon className="animate-spin" /></div> // placeholder
                     ) : isLoggedIn && userImageUrl ? (
-                        <Link href="/profile">
-                            <Image
-                                src={userImageUrl}
-                                alt="User Avatar"
-                                className="rounded-full"
-                                width={32}
-                                height={32}
-                            />
-                        </Link>
+                        <div className="flex justify-center items-center gap-2">
+
+                            <LogoutButton />
+                            <Link href="/profile">
+                                <Image
+                                    src={userImageUrl}
+                                    alt="User Avatar"
+                                    className="rounded-full"
+                                    width={32}
+                                    height={32}
+                                />
+                            </Link>
+                        </div>
                     ) : (
                         <div className="flex gap-2">
                             <Button asChild size="sm" variant={"outline"}>
