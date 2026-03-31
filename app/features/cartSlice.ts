@@ -3,11 +3,10 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { Product } from "@/app/interfaces/product";
 
 // Define a type for the slice state
-interface CartItem {
-    product: Product
-    quantity: number
-}
-interface Item {
+
+// store/cartSlice.ts
+
+export interface CartItem {
     product: Product;
     quantity: number
 }
@@ -27,7 +26,7 @@ export const cartSlice = createSlice({
     name: "cart",
     initialState,
     reducers: {
-        addToCart: (state, action: PayloadAction<Item>) => {
+        addToCart: (state, action: PayloadAction<CartItem>) => {
             const product = action.payload.product
             const quantity = action.payload.quantity
 
@@ -48,7 +47,7 @@ export const cartSlice = createSlice({
             state.items = state.items.filter(item => item.product.id !== action.payload)
             localStorage.setItem("cart", JSON.stringify(state.items))
         },
-        decreaseOne: (state, action: PayloadAction<Item>) => {
+        decreaseOne: (state, action: PayloadAction<CartItem>) => {
             const product = action.payload.product
             const quantity = action.payload.quantity
             const existing = state.items.find(item => item.product.id === product.id)
