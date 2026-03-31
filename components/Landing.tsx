@@ -18,7 +18,7 @@ const Landing = () => {
                         Browse through our diverse range of meticulously crafted garments, designed to bring out your individuality and cater to your sense of style.
                     </p>
                     <div className="mt-4">
-                        <LinkButton text="Shop Now" href="#categories" />
+                        <LinkButton text="Shop Now" href="/#categories" />
                     </div>
 
                     <div className="flex justify-center md:justify-start gap-6 mt-6 flex-wrap">

@@ -53,7 +53,7 @@ const Footer = () => {
                 lis: [
                     {
                         title: "about",
-                        href: '/about',
+                        href: '/',
                         id: 1
                     },
                     {
@@ -105,7 +105,7 @@ const Footer = () => {
                 lis: [
                     {
                         title: "account",
-                        href: '/profile',
+                        href: '/',
                         id: 1
                     },
                     {

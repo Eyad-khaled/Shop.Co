@@ -28,9 +28,9 @@ const NavBar = () => {
     //vars
     const items: Item[] = [
         { name: 'Home', href: '/' },
-        { name: 'Shop', href: '#categories' },
-        { name: 'About', href: '/about' },
-        { name: 'Contact', href: '/contact' },
+        { name: 'Shop', href: '/#categories' },
+        // { name: 'About', href: '/about' },
+        // { name: 'Contact', href: '/contact' },
     ];
     //states
     const [mount, setmount] = useState(false)
@@ -199,7 +199,7 @@ const NavBar = () => {
                         <div className="flex justify-center items-center gap-2">
 
                             <LogoutButton />
-                            <Link href="/profile">
+                            <div className="cursor-pointer">
                                 <Image
                                     src={userImageUrl}
                                     alt="User Avatar"
@@ -207,7 +207,7 @@ const NavBar = () => {
                                     width={32}
                                     height={32}
                                 />
-                            </Link>
+                            </div>
                         </div>
                     ) : (
                         <div className="flex gap-2">
