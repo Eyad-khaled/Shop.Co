@@ -9,7 +9,7 @@ export default function CountUp({
   delay = 0,
   duration = 2,
   className = '',
-  startCounting = true,
+  startWhen = true,
   separator = '',
   onStart,
   onEnd
@@ -67,7 +67,7 @@ export default function CountUp({
   }, [from, to, direction, formatValue]);
 
   useEffect(() => {
-    if (isInView && startCounting) {
+    if (isInView && startWhen) {
       if (typeof onStart === 'function') onStart();
 
       const timeoutId = setTimeout(() => {
@@ -86,7 +86,7 @@ export default function CountUp({
         clearTimeout(durationTimeoutId);
       };
     }
-  }, [isInView, startCounting, motionValue, direction, from, to, delay, onStart, onEnd, duration]);
+  }, [isInView, startWhen, motionValue, direction, from, to, delay, onStart, onEnd, duration]);
 
   useEffect(() => {
     const unsubscribe = springValue.on('change', latest => {
