@@ -7,10 +7,10 @@ const Landing = () => {
     return (
         <div className="overflow-hidden">
 
-            <div className="flex p-0 w-full flex flex-col lg:flex-row gap-4 md:h-[calc(100vh-146px)] h-[85vh] md:pt-4 md:px-16 bg-[#F2F0F1]">
+            <div className="flex p-0 w-full flex flex-col lg:flex-row gap-4 md:h-[calc(100vh-146px)] h-[calc(100dvh - 149px)] md:pt-4 md:px-16 bg-[#F2F0F1]">
 
                 {/* Left side - fixed so it never overflows */}
-                <div className="text-side px-[30px] md:p-[5px]  flex flex-col basis-[60%] justify-center animate-[slide-in-left_0.8s_ease-in-out_forwards]">
+                <div className="text-side px-[30px] md:p-[5px] pt-[20px]  flex flex-col basis-[60%] justify-center animate-[slide-in-left_0.8s_ease-in-out_forwards]">
                     <h1 className="font-[900] text-[30px] md:text-[40px] leading-tight">
                         Find Clothes That <br /> Matches Your Style
                     </h1>
