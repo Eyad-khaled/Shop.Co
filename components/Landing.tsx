@@ -7,11 +7,11 @@ const Landing = () => {
     return (
         <div className="overflow-hidden">
 
-            <div className="flex p-0 w-full flex flex-col lg:flex-row gap-4 md:h-[calc(100vh-146px)] h-[calc(100vh-145px)] md:pt-4 md:px-16 bg-[#F2F0F1]">
+            <div className="flex p-0 w-full flex flex-col lg:flex-row gap-4 md:h-[calc(100vh-146px)] h-[85vh] md:pt-4 md:px-16 bg-[#F2F0F1]">
 
                 {/* Left side - fixed so it never overflows */}
-                <div className="text-side p-[5px] flex flex-col basis-[60%] justify-center animate-[slide-in-left_0.8s_ease-in-out_forwards]">
-                    <h1 className="font-[900] text-[40px] leading-tight">
+                <div className="text-side px-[30px] md:p-[5px]  flex flex-col basis-[60%] justify-center animate-[slide-in-left_0.8s_ease-in-out_forwards]">
+                    <h1 className="font-[900] text-[30px] md:text-[40px] leading-tight">
                         Find Clothes That <br /> Matches Your Style
                     </h1>
                     <p className="opacity-70 mt-3 max-w-[480px]">
@@ -53,7 +53,7 @@ const Landing = () => {
                 </div>
 
                 {/* Right side - image fills its container naturally */}
-                <div className="image-side animate-[slide-in-right_0.8s_ease-in-out_forwards] basis-[40%] relative flex items-center justify-center hidden md:block">
+                <div className="image-side animate-[slide-in-right_0.8s_ease-in-out_forwards] basis-[40%] relative flex items-center justify-center">
                     <Image src="/landing/star-removebg-preview.png" className="absolute z-[100] lg:top-[50px] top-0 right-0 lg:right-[40px]" alt="star" width={50} height={50} />
                     <Image src="/landing/star-removebg-preview.png" className="absolute z-[100] bottom-[0px] lg:bottom-[40px] left-0 lg:left-[-20px]" alt="star" width={50} height={50} />
                     <div className="absolute bottom-0 left-0 w-full h-full flex justify-center">

@@ -6,8 +6,7 @@ import PaginationBar from "@/components/Paginationbar";
 import ProductCard from "@/components/productCard";
 import ResetFilters from "@/components/ResetFilters";
 import SortBar from "@/components/sortBar";
-
-
+ 
 type Category = "clothes" | "electronics" | "accessories" | "furniture"; // all valid keys
 const Clothes = async ({
   params,
