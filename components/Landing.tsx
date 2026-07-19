@@ -32,7 +32,7 @@ const Landing = () => {
                   direction="up"
                   duration={1.9}
                   className="count-up-text"
-                  startWhen={false}
+                //   startWhen={false}
                 />
                 +
               </div>
@@ -49,7 +49,7 @@ const Landing = () => {
                   direction="up"
                   duration={0.5}
                   className="count-up-text"
-                  startWhen={false}
+                //   startWhen={false}
                 />
                 +
               </div>
@@ -67,7 +67,7 @@ const Landing = () => {
                   direction="up"
                   duration={0.3}
                   className="count-up-text"
-                  startWhen={false}
+                //   startWhen={false}
                 />
                 +
               </div>
