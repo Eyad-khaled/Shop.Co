@@ -6,6 +6,7 @@ import "./globals.css";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/footer";
 import ReduxProvider from "@/app/store/provider"
+import ScrollSmootherProvider from "@/components/scrollSmoother";
 
 const defaultUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
@@ -40,11 +41,16 @@ export default function RootLayout({
             disableTransitionOnChange
           >
             <NavBar />
+            <ScrollSmootherProvider>
+            <main  className="pt-[64px]">
+
             {children}
+            </main>
             <div className="w-full">
               <Footer />
 
             </div>
+            </ScrollSmootherProvider>
           </ThemeProvider>
         </ReduxProvider>
       </body>

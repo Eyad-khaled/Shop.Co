@@ -15,11 +15,14 @@ const ProductCard = ({ product }: ProductCardProps) => {
                     <div className="image  rounded-md overflow-hidden w-fit bg-[#f0f0f0]"  >
                         <Image className=" rounded-md hover:scale-[1.1] transition-all duration-500 ease-in-out" src={product.images[0]} alt={product.title} height={200} width={200}></Image>
                     </div>
-                    <div className="text pt-4">
+                    <div className="text pt-4 flex justify-between flex-col gap-[20px]">
                         <h1 className="font-[700] opacity-70 text-[14px] max-w-full h-[40px]">{product.title}</h1>
+                        <div className="">
+
                         <p className="font-[700] text-[16px]"> ${product.price}</p>
                         <div className="stars-rating">
                             <StarRating rating={product.rating} />
+                        </div>
                         </div>
                     </div>
                 </Link>
