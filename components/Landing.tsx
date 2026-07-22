@@ -37,7 +37,7 @@ const Landing = () => {
       onUpdate: () => {
         if (twoThousand.current) {
           twoThousand.current.textContent = Math.floor(
-            counter_100.value,
+            counter_2000.value,
           ).toString();
         }
       },
@@ -52,7 +52,7 @@ const Landing = () => {
       onUpdate: () => {
         if (thirtyK.current) {
           thirtyK.current.textContent = Math.floor(
-            counter_100.value,
+            counter_30000.value,
           ).toString();
         }
       },
@@ -158,7 +158,7 @@ const Landing = () => {
             style.
           </p>
           <div className="mt-4 fade-in-left opacity-0">
-            <LinkButton text="Shop Now" href="/#categories" />
+            <LinkButton text="Shop Now" href="#categories" />
           </div>
 
           <div className="flex justify-center md:justify-start gap-6 mt-6 flex-wrap fade-in-left opacity-0">

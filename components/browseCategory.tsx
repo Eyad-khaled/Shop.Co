@@ -5,7 +5,6 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
 // import * as motion from "motion/react-client"
 
 export interface fakeCategory {
@@ -78,7 +77,7 @@ const BrowseCategory = () => {
   return (
     <div
       id="categories"
-      className="w-[100%] mx-auto mt-[100px] bg-[white]  pb-8 rounded-lg"
+      className="w-[100%] mx-auto  bg-[white]  pb-8 rounded-lg"
     >
       <div>
         <h1 className="flex justify-center items-center mb-6 text-[20px] text-center lg:text-[35px] font-[900] uppercase">
