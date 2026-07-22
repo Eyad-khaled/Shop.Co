@@ -18,6 +18,7 @@ import { RootState } from "@/app/store/store";
 import { useSelector } from "react-redux";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 
 export interface Item {
   name: string;
@@ -29,7 +30,7 @@ const NavBar = () => {
   //vars
   const items: Item[] = [
     { name: "Home", href: "/" },
-    { name: "Shop", href: "/#categories" },
+    { name: "Shop", href: "#categories" },
     // { name: 'About', href: '/about' },
     // { name: 'Contact', href: '/contact' },
   ];
@@ -45,24 +46,20 @@ const NavBar = () => {
   const sidebarRef = useRef<HTMLDivElement | null>(null);
   const [isMounted, setIsMounted] = useState(false);
   const totalCartItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-
+  gsap.registerPlugin(ScrollToPlugin );
   //isuser logged in or not
   useEffect(() => {
     setIsMounted(true);
   }, []);
   useGSAP(() => {
-    if(!isMounted) return null
-    gsap.from(
-      "#nav",
-      {
-        autoAlpha: 0,
-        duration: 2,
-        ease: "power1.inOut",
-        delay:1
-      }
-    );
-  },
-      [isMounted],);
+    if (!isMounted) return null;
+    gsap.from("#nav", {
+      autoAlpha: 0,
+      duration: 2,
+      ease: "power1.inOut",
+      delay: 1,
+    });
+  }, [isMounted]);
 
   useEffect(() => {
     const supabase = createClient();
@@ -116,6 +113,9 @@ const NavBar = () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
+  const handleShopClick = (href: string) => {
+    gsap.to(window, { scrollTo: href, duration: 2, ease: "power1.out" });
+  };
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
@@ -142,7 +142,7 @@ const NavBar = () => {
   };
   if (!isMounted) return null;
   return (
-    <div id="nav"  className="fixed top-0 left-0 w-full z-50 bg-white shadow-lg">
+    <div id="nav" className="fixed top-0 left-0 w-full z-50 bg-white shadow-lg">
       {(IsSideBarOpen || isCategoriesOpen) && (
         <div
           className="fixed inset-0 backdrop-blur-sm bg-black/10 z-40"
@@ -152,10 +152,7 @@ const NavBar = () => {
           }}
         />
       )}
-      <nav
-        
-        className="relative flex  items-center justify-between py-4 px-2"
-      >
+      <nav className="relative flex  items-center justify-between py-4 px-2">
         <div className="flex justify-center items-center gap-2">
           <div
             className="sm:hidden flex"
@@ -180,7 +177,11 @@ const NavBar = () => {
               key={item.href}
               className="hover:underline underline-offset-8 decoration-2 decoration-dark-900 font-[500] text-dark-900 cursor-pointer"
             >
-              <Link href={item.href}>{item.name}</Link>
+              {item.name === "Home" ? (
+                <Link href={item.href}>{item.name}</Link>
+              ) : (
+                <h1 onClick={()=>handleShopClick(item.href)}>{item.name}</h1>
+              )}
             </li>
           ))}
           <li
