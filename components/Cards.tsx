@@ -15,7 +15,7 @@ interface CardsProps {
 function Cards(products: CardsProps) {
   useGSAP(() => {
     const container = document.getElementById("container");
-    const cards = gsap.utils.toArray(".cards");
+    const cards = gsap.utils.toArray<HTMLElement>(".cards");
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: container,

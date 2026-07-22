@@ -1,16 +1,18 @@
 "use client";
 import LinkButton from "@/components/linkButton";
-import CountUp from "@/components/CountUp";
 import Image from "next/image";
 import Banner from "./banner";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { SplitText } from "gsap/SplitText";
+import { useRef } from "react";
 gsap.registerPlugin(SplitText);
 const Landing = () => {
+  const hundred = useRef<HTMLHeadingElement>(null);
+  const twoThousand = useRef<HTMLHeadingElement>(null);
+  const thirtyK = useRef<HTMLHeadingElement>(null);
   useGSAP(() => {
     const counter_100 = { value: 0 };
-    const hundred = document.getElementById("hundred");
 
     gsap.to(counter_100, {
       value: 100,
@@ -18,11 +20,14 @@ const Landing = () => {
       delay: 1.5,
       ease: "power2.out",
       onUpdate: () => {
-        hundred.textContent = Math.floor(counter_100.value);
+        if (hundred.current) {
+          hundred.current.textContent = Math.floor(
+            counter_100.value,
+          ).toString();
+        }
       },
     });
     const counter_2000 = { value: 0 };
-    const twoThousand = document.getElementById("two-thousand");
 
     gsap.to(counter_2000, {
       value: 2000,
@@ -30,11 +35,14 @@ const Landing = () => {
       delay: 1.5,
       ease: "power2.out",
       onUpdate: () => {
-        twoThousand.textContent = Math.floor(counter_2000.value);
+        if (twoThousand.current) {
+          twoThousand.current.textContent = Math.floor(
+            counter_100.value,
+          ).toString();
+        }
       },
     });
     const counter_30000 = { value: 0 };
-    const thirtyK = document.getElementById("thirty-k");
 
     gsap.to(counter_30000, {
       value: 30000,
@@ -42,7 +50,11 @@ const Landing = () => {
       delay: 1.5,
       ease: "power2.out",
       onUpdate: () => {
-        thirtyK.textContent = Math.floor(counter_30000.value);
+        if (thirtyK.current) {
+          thirtyK.current.textContent = Math.floor(
+            counter_100.value,
+          ).toString();
+        }
       },
     });
   });
@@ -80,41 +92,45 @@ const Landing = () => {
             each: 0.05,
           },
           ease: "power3.out",
-          
         },
-      ).fromTo(subTitleText,{
-           opacity:0
-      },{
-       opacity:0.7,
-       duration:0.3,
-       ease: "power3.out",
-          
-      } ,"<")
+      )
+      .fromTo(
+        subTitleText,
+        {
+          opacity: 0,
+        },
+        {
+          opacity: 0.7,
+          duration: 0.3,
+          ease: "power3.out",
+        },
+        "<",
+      )
       .fromTo(
         ".fade-in-left",
         {
           delay: 0.2,
           xPercent: -100,
-          autoAlpha:0
+          autoAlpha: 0,
         },
         {
           xPercent: 0,
           duration: 1,
           ease: "back.out",
-          autoAlpha:1
+          autoAlpha: 1,
         },
       )
-     .fromTo(
+      .fromTo(
         ".fade-in-right",
         {
           xPercent: 100,
-          autoAlpha:0
+          autoAlpha: 0,
         },
         {
           xPercent: 0,
           duration: 1,
           ease: "back.out",
-          autoAlpha:1
+          autoAlpha: 1,
         },
         "<",
       )
@@ -159,14 +175,14 @@ const Landing = () => {
                 //   startWhen={false}
                 />
                 + */}
-                <h1 id="hundred"></h1>+
+                <h1 ref={hundred}></h1>+
               </div>
               <p className="opacity-70 text-sm">International Brands</p>
             </div>
             <div className="w-px bg-black/20 self-stretch" /> {/* divider */}
             <div className="flex flex-col gap-1">
               <div className="font-[600] text-[28px] flex">
-                <h1 id="two-thousand"></h1>+
+                <h1 ref={twoThousand}></h1>+
               </div>
               <p className="opacity-70 text-sm">High-Quality Products</p>
             </div>
@@ -174,7 +190,7 @@ const Landing = () => {
             {/* divider */}
             <div className="flex flex-col gap-1">
               <div className="font-[600] text-[28px] flex">
-                <h1 id="thirty-k"></h1>+
+                <h1 ref={thirtyK}></h1>+
               </div>
               <p className="opacity-70 text-sm">Happy Customers</p>
             </div>

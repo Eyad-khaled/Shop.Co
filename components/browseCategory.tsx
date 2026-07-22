@@ -12,7 +12,7 @@ export interface fakeCategory {
   id: number;
   img: string;
   name: string;
-  title: string;
+  title?: string;
 }
 const categories = [
   {
@@ -49,8 +49,7 @@ const BrowseCategory = () => {
     "lg:col-span-1",
   ];
   useGSAP(() => {
-    const container = document.getElementById("container");
-    const sections = gsap.utils.toArray(".category");
+    const sections = gsap.utils.toArray<HTMLElement>(".category");
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: "#categories",
