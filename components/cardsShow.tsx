@@ -23,7 +23,7 @@ const CardsShow = ({ products, title, href }: CardsShowProps) => {
         >
           {title}
         </h1>
-        <ul className="flex lg:w-[70vw] justify-around items-center lg:justify-center lg:gap-4 overflow-x-auto overflow-y-hidden lg:overflow-hidden gap-6 px-6 lg:px-0 pb-10 [touch-action:pan-x]">
+        <ul className="flex lg:w-[70vw] justify-around items-center lg:justify-center lg:gap-4 overflow-x-auto overflow-y-hidden lg:overflow-hidden gap-6 px-6 lg:px-0 pb-10">
           {products.slice(0, 4).map((product) => (
             <li key={product.id} className="min-w-[150px] basis-1/5 product">
               <ProductCard product={product} />

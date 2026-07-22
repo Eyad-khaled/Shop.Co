@@ -22,7 +22,7 @@ export default function ScrollSmootherProvider({
       smooth: 1.5,
       effects: true,
       smoothTouch: 0.1,
-      normalizeScroll: { allowNestedScroll: true },
+      normalizeScroll:true
     });
 
     return () => smoother.kill();
