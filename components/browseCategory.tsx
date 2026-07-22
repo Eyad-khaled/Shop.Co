@@ -57,7 +57,6 @@ const BrowseCategory = () => {
         end: `${sections.length * 500}px`,
         scrub: true,
         pin: true,
-        markers: true,
         pinSpacing: false,
       },
     });
@@ -82,7 +81,7 @@ const BrowseCategory = () => {
       className="w-[100%] mx-auto mt-[100px] bg-[white]  pb-8 rounded-lg"
     >
       <div>
-        <h1 className="flex justify-center items-center mb-6 text-[35px] font-[900] uppercase">
+        <h1 className="flex justify-center items-center mb-6 text-[20px] text-center lg:text-[35px] font-[900] uppercase">
           View all Categories
         </h1>
       </div>

@@ -19,7 +19,7 @@ const CardsShow = ({ products, title, href }: CardsShowProps) => {
     <div className="w-full overflow-auto lg:flex lg:justify-center lg:items-center">
       <div className="bg-white mt-20 w-[95%] lg:flex lg:justify-center lg:items-center flex-col">
         <h1
-          className="flex justify-center items-center mb-8 text-[25px] font-[900] uppercase"
+          className="flex justify-center items-center mb-8 text-[18px] lg:text-[25px] font-[900] uppercase text-center"
         >
           {title}
         </h1>
