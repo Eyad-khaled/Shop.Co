@@ -23,6 +23,10 @@ function Cards(products: CardsProps) {
         end: "+=2000",
         scrub: true,
         pin: true,
+        onRefresh: (self) => {
+          // force it back after ScrollTrigger sets its own value
+          if (self.pin) (self.pin as HTMLElement).style.touchAction = "pan-x";
+        },
       },
     });
     cards.forEach((card, i) => {
