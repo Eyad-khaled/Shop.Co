@@ -3,7 +3,6 @@ import { Product } from "@/app/interfaces/product";
 import ProductCard from "./productCard";
 import Link from "next/link";
 
-
 // import * as motion from "motion/react-client"
 
 interface CardsShowProps {
@@ -18,12 +17,13 @@ const CardsShow = ({ products, title, href }: CardsShowProps) => {
 
     <div className="w-full overflow-auto lg:flex lg:justify-center lg:items-center">
       <div className="bg-white mt-20 w-[95%] lg:flex lg:justify-center lg:items-center flex-col">
-        <h1
-          className="flex justify-center items-center mb-8 text-[18px] lg:text-[25px] font-[900] uppercase text-center"
-        >
+        <h1 className="flex justify-center items-center mb-8 text-[18px] lg:text-[25px] font-[900] uppercase text-center">
           {title}
         </h1>
-        <ul className="flex lg:w-[70vw] justify-around items-center lg:justify-center lg:gap-4 overflow-x-auto overflow-y-hidden lg:overflow-hidden gap-6 px-6 lg:px-0 pb-10">
+        <ul
+          className="flex lg:w-[70vw] justify-around items-center lg:justify-center lg:gap-4 overflow-x-auto overflow-y-hidden lg:overflow-hidden gap-6 px-6 lg:px-0 pb-10"
+          style={{ touchAction: "pan-x" }}
+        >
           {products.slice(0, 4).map((product) => (
             <li key={product.id} className="min-w-[150px] basis-1/5 product">
               <ProductCard product={product} />
