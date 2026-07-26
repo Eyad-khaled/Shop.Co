@@ -146,7 +146,10 @@ const Clothes = async ({
           <h1 className="uppercase font-[800] text-[20px] mt-10">{category}</h1>
           <div className="grid lg:grid-cols-3 grid-cols-2 gap-4 mt-4 ">
             {paginatedProducts.map((p) => (
-              <ProductCard key={p.id} product={p} />
+              <div key={p.id} className="product">
+
+              <ProductCard  product={p} />
+              </div>
             ))}
           </div>
 
