@@ -2,6 +2,7 @@
 import { Product } from "@/app/interfaces/product";
 import ProductCard from "./productCard";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 // import * as motion from "motion/react-client"
 
@@ -12,6 +13,18 @@ interface CardsShowProps {
 }
 
 const CardsShow = ({ products, title, href }: CardsShowProps) => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkScreen = () => {
+      setIsMobile(window.innerWidth < 700);
+    };
+
+    checkScreen(); // Initial check
+    window.addEventListener("resize", checkScreen);
+
+    return () => window.removeEventListener("resize", checkScreen);
+  }, []);
   return (
     // <motion.section initial={{ opacity: 0, y: 100 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: .7 }}>
 
@@ -24,7 +37,7 @@ const CardsShow = ({ products, title, href }: CardsShowProps) => {
           className="flex lg:w-[70vw] justify-around items-center lg:justify-center lg:gap-4 overflow-x-auto overflow-y-hidden lg:overflow-hidden gap-6 px-6 lg:px-0 pb-10"
           style={{ touchAction: "pan-x" }}
         >
-          {products.slice(0, 4).map((product) => (
+          {products.slice(0, isMobile ? 2 : 4).map((product) => (
             <li key={product.id} className="min-w-[150px] basis-1/5 product">
               <ProductCard product={product} />
             </li>
